@@ -1,4 +1,10 @@
 # WeatherApp
+
+
+‼️
+**IF YOU CLONE/DOWNLOAD this project**, make sure you insert your openCage and openWeather API keys in `config_sample.js` which you'll rename as `config.js`.
+
+
 ## Goals
 - Use AJAX & jQuery to make asynchronous requests (bonus)
 - Read an API's documentation
