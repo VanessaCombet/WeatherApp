@@ -1,2 +1,8 @@
 # pour garder clés secrètes
-config.js
+js/config.js
+js/main-for-me.js
+js/main-for-me-bis.js
+js/dictons.txt
+.DS_Store
+css/.DS_Store
+
