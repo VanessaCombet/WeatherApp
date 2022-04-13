@@ -1,54 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report 4</title>
-    <!-- Fichiers CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-    <section class="container-fluid">
-        <h1 class="text-center mt-3 mb-3">Weather App</h1>
-        <div class="container-fluid">
-            <small id="missing-error-message" class="text-danger"></small>
-            <form id="form-city" class="container-fluid row g-3 justify-content-center">
-                <div class="col-auto">
-                    <input type="text" id="city-name-input" class="col-auto form-control" placeholder="Enter a city's name">
-                </div>
-                <div class="col-auto">
-                    <select id="week-days" class="form-select" size="1">
-                        <option value="1">1 day</option>
-                        <option value="2">2 days</option>
-                        <option value="3">3 days</option>
-                        <option value="4">4 days</option>
-                        <option value="5">5 days</option>
-                        <option value="6">6 days</option>
-                        <option value="7">7 days</option>
-                    </select>
-                </div>
-                <div class="col-auto">
-                    <button type="submit" class="btn btn-primary">Go for it!</button>
-                </div>
-            </form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fichiers CSS, Icons et Fonts -->
+
+    <link rel="icon" type="image/x-icon" href="./img/icons/myfavicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="./img/icons/myfavicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;600;700&family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/general.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/queries.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+
+    <title>WeatherWardrobeApp</title>
+  </head>
+
+  <body class="layout">
+    <header class="header">
+      <a href="#">
+        <img class="logo" alt="Weather App logo" src="img/logo.png" />
+      </a>
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li><a href="#top-how" class="main-nav-link">How it works</a></li>
+          <li>
+            <a href="#top-testimonials" class="main-nav-link">Testimonials</a>
+          </li>
+          <li>
+            <a href="#top-weather-app" class="main-nav-link nav-weather-app" title="Won't regret it!"
+              >Try it!</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <button class="btn-mobile-nav">
+        <ion-icon name="menu-outline" class="icon-mobile-nav"></ion-icon>
+        <ion-icon name="close-outline" class="icon-mobile-nav"></ion-icon>
+      </button>
+    </header>
+    <main class="container main">
+      <section class="section-hero">
+        <div class="hero">
+          <div class="hero-text-box">
+            <h1 class="heading-primary">
+              Check the weather forecast and choose the right outfit
+            </h1>
+            <p class="hero-description">
+              The smart web application that will help you choose what to wear,
+              wherever you are or going to be!
+            </p>
+          </div>
+          <div class="hero-img-box">
+            <img
+              src="img/photos/hero-img.jpg"
+              class="hero-img"
+              alt="Rain boots and umbrella"
+            />
+          </div>
+
+          <div class="happy-users">
+            <div class="h-users-imgs">
+              <img src="./img/users/missTik.png" alt="user photo" />
+              <img src="./img/users/missTik.png" alt="user photo" />
+              <img src="./img/users/missTik.png" alt="user photo" />
+              <img src="./img/users/missTik.png" alt="user photo" />
+              <img src="./img/users/missTik.png" alt="user photo" />
+            </div>
+            <p class="h-users-text">Over millions of happy users!</p>
+          </div>
         </div>
-        <div class="container-fluid mt-3 mb-3">
-            <span>City's weather you're looking for: </span>
-            <span id="city-formatted"></span>
+      </section>
+
+      <section class="section-weather-app" id="top-weather-app">
+        <h1 class="heading-primary weather-item1">WeatherApp</h1>
+        <!-- <div> -->
+        <!-- 1st element FORM -->
+        <div class="weather-item2">
+          <small id="missing-error-message" class="text-danger"></small>
+          <form id="form-city" class="form-container">
+            <div class="city-name">
+              <input
+                type="text"
+                id="city-name-input"
+                class=""
+                placeholder="Enter a city's name"
+              />
+            </div>
+            <div>
+              <select id="week-days" required>
+                <option value="1">1 day</option>
+                <option value="2">2 days</option>
+                <option value="3">3 days</option>
+                <option value="4">4 days</option>
+                <option value="5">5 days</option>
+                <option value="6">6 days</option>
+                <option value="7">7 days</option>
+              </select>
+            </div>
+            <div class="radio-container">
+              <div class="radio-item">
+                <input
+                  type="radio"
+                  id="radio-cels"
+                  name="radio"
+                  value="celsius"
+                  checked
+                />
+                <label for="radio-cels" class="radio-label">Celsius</label>
+              </div>
+              <div class="radio-item">
+                <input
+                  type="radio"
+                  id="radio-faren"
+                  name="radio"
+                  value="farenheit"
+                />
+                <label for="radio-faren" class="radio-label">Farenheit</label>
+              </div>
+            </div>
+
+            <button id="btn-weather" type="submit" class="btn btn-form">Go for it!</button>
+          </form>
         </div>
-        <div class="container-fluid table-responsive">
-            <table class="table align-middle table-borderless">
-                <tr id="tr-h2" class="text-center">
-                </tr>
-                <tr id="tr-img" class="text-center">
-                </tr>
-            </table>
+
+        <div id="city-container" class="weather-item3 heading-secondary">
+          <span id="city-formatted"></span>
         </div>
-    </section>
+
+        <div class="weather-item4">
+          <div id="weather-container"></div>
+        </div>
+      </section>
+
+      <section class="section-testimonials" id="top-testimonials">
+        <div class="testimonials-heading">
+          <span class="subheading">Testimonials</span>
+          <h2 class="heading-secondary">Once you try it, you can't go back</h2>
+        </div>
+
+        <div class="testimonials-container">
+          <div class="testimonials">
+            <figure>
+              <img
+                class="testimonial-img"
+                alt="Photo of a user"
+                src="img/users/missTik.png"
+              />
+              <blockquote class="testimonial-text">
+                Free app helps me pick the perfect outfit. It feels truly
+                magical.
+              </blockquote>
+              <p class="testimonial-name">&mdash; Miss Tik</p>
+            </figure>
+
+            <figure>
+              <img
+                class="testimonial-img"
+                alt="Photo of a user"
+                src="img/users/missTik.png"
+              />
+              <blockquote class="testimonial-text">
+                The app is crazy good, it chooses the right clothes for me!
+              </blockquote>
+              <p class="testimonial-name">&mdash; Éléa Tik</p>
+            </figure>
+
+            <figure>
+              <img
+                class="testimonial-img"
+                alt="Photo of customer Steve Miller"
+                src="img/users/missTik.png"
+              />
+              <blockquote class="testimonial-text">
+                WeatherApp is a real life saver! I couldn't live without it
+                now...
+              </blockquote>
+              <p class="testimonial-name">&mdash; Cosmo Tik</p>
+            </figure>
+
+            <figure>
+              <img
+                class="testimonial-img"
+                alt="Photo of customer Hannah Smith"
+                src="img/users/missTik.png"
+              />
+              <blockquote class="testimonial-text">
+                I use the app for the whole family, and it frees up so much
+                time!
+              </blockquote>
+              <p class="testimonial-name">&mdash; Russ Tik</p>
+            </figure>
+          </div>
+        </div>
+
+        <div class="gallery">
+          <figure class="gallery-item">
+            <img
+              src="img/gallery/summer-1.jpg"
+              alt="Photo of summer clothes"
+            />
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="img/gallery/summer-2.jpg"
+              alt="Photo of summer clothes"
+            />
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="img/gallery/summer-3.jpg"
+              alt="Photo of summer clothes"
+            />
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="img/gallery/autumn-1.jpg"
+              alt="Photo of autumn clothes"
+            />
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="img/gallery/autumn-2.jpg"
+              alt="Photo of autumn clothes"
+            />
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="img/gallery/autumn-3.jpg"
+              alt="Photo of autumn clothes"
+            />
+          </figure>
+
+          <figure class="gallery-item">
+            <img 
+              src="img/gallery/winter-1.png"
+              alt="Photo of winter clothes" />
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="img/gallery/winter-2.jpg"
+              alt="Photo of winter clothes"
+            />
+          </figure>
+
+          <figure class="gallery-item">
+            <img 
+              src="img/gallery/winter-3.png" 
+              alt="Photo of winter clothes" />
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="img/gallery/spring-1.jpg"
+              alt="Photo of spring clothes"
+            />
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="img/gallery/spring-2.jpg"
+              alt="Photo of spring clothes"
+            />
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="img/gallery/spring-3.png" alt="Photo of spring clothes" />
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <button class="back-to-top to-hide">
+      <a href="#">
+        <img src="./img/icons/arrow-icon-up.svg">
+      </a>
+    </button>
+
+    <footer class="footer">
+      <div class="grid-footer">
+        <div class="logo-col">
+          <a href="#">
+            <img
+              class="footer-logo"
+              alt="WeatherWardrobeApp logo"
+              src="img/logo.png"
+            />
+          </a>
+        </div>
+
+        <nav>
+          <p class="footer-heading">About us</p>
+          <ul class="footer-nav">
+            <li><a class="footer-link" href="#">Who are we?</a></li>
+            <li><a class="footer-link" href="#">Why offer this service?</a></li>
+            <li><a class="footer-link" href="#">Want to join us?</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <p class="footer-heading">Contact us</p>
+          <ul class="footer-nav">
+            <li>
+              <a class="footer-link" href="mailto:hello@matrice.io"
+                >hello@hell.com</a
+              >
+            </li>
+            <li>
+              <p class="footer-link">
+                666 Straight2Hell Bd, Los Demons, CA, 66666, USA
+              </p>
+            </li>
+            <li>
+              <a class="footer-link" href="tel:+33 6 66 66 66 66">
+                +33 6 66 66 66 66</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <nav>
+          <p class="footer-heading">Follow us</p>
+          <ul class="social-links">
+            <div class="links-display">
+              <a
+                class="footer-link"
+                href="https://www.newgrounds.com/portal/view/525929"
+                target="_blank"
+              >
+                <li class="to-resize">
+                  <ion-icon class="social-icon" name="logo-facebook"></ion-icon>
+                </li>
+              </a>
+              <a
+                class="footer-link"
+                href="https://www.newgrounds.com/portal/view/525929"
+                target="_blank"
+              >
+                <li class="to-resize">
+                  <ion-icon
+                    class="social-icon"
+                    name="logo-instagram"
+                  ></ion-icon>
+                </li>
+              </a>
+              <a
+                class="footer-link"
+                href="https://www.newgrounds.com/portal/view/525929"
+                target="_blank"
+              >
+                <li class="to-resize">
+                  <ion-icon class="social-icon" name="logo-twitter"></ion-icon>
+                </li>
+              </a>
+            </div>
+            <div class="links-display">
+              <a
+                class="footer-link"
+                href="https://www.newgrounds.com/portal/view/525929"
+                target="_blank"
+              >
+                <li class="to-resize">
+                  <ion-icon class="social-icon" name="logo-linkedin"></ion-icon>
+                </li>
+              </a>
+              <a
+                class="footer-link"
+                href="https://www.newgrounds.com/portal/view/525929"
+                target="_blank"
+              >
+                <li class="to-resize">
+                  <ion-icon class="social-icon" name="logo-github"></ion-icon>
+                </li>
+              </a>
+              <a
+                class="footer-link"
+                href="https://www.newgrounds.com/portal/view/525929"
+                target="_blank"
+              >
+                <li class="to-resize">
+                  <ion-icon class="social-icon" name="logo-youtube"></ion-icon>
+                </li>
+              </a>
+            </div>
+          </ul>
+        </nav>
+
+        <div id="copyright" class="copyright">
+            Copyright&copy;<span class="copyright-year"></span> by Go2H,
+            Inc. All rights reserved.
+          </div>
+        </div>
+      </div>
+      <!-- <a href="#">TOP</a> -->
+    </footer>
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script> -->
     <script type="module" src="js/main.js"></script>
-</body>
+  </body>
 </html>

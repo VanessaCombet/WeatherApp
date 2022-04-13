@@ -74,6 +74,6 @@ For the final step, you will allow your visitor to choose how many days should b
 Here are bonuses that will be considered during the project review:
 - A day/night styling of your page (if it's night time for the requested city, switch to night mode). You can use the Sunrise Sunset API to figure this out.
 - Using Promises to handle the asynchronous requests. This will only count if you understand it and can explain how it works!
-- Caching information to limit API calls
+- Catching information to limit API calls
 - Proper usage of object-oriented programming concepts to structure your program. Justify the design of your classes and your choices of implementation. Is each class modelling a well-defined, independent concept? Do they all have a separate responsibility? For example, if you have a City class, is it justified to modify the DOM inside it?
 
