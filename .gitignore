@@ -1,8 +1,10 @@
 # pour garder clés secrètes
-js/config.js
-js/main-for-me.js
-js/main-for-me-bis.js
-js/dictons.txt
+static/js/config.js
+static/js/main-for-me.js
+static/js/main-for-me-bis.js
+static/js/dictons.txt
 .DS_Store
-css/.DS_Store
-
+static/css/.DS_Store
+env/
+node_modules/
+__pycache__/
