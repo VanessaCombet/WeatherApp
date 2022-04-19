@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="WeatherApp is an incredible service that offers BS"
+    />
+    <!-- Fichiers CSS, Icons et Fonts -->
+
+    <!-- <link rel="icon" type="image/x-icon" href="../static/img/icons/myfavicon.ico" />
+    <link rel="icon" href="/myfavicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="../static/img/icons/apple-touch-icon.ico" /> -->
+
+    <!-- 32×32 -->
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='img/icons/favicon.png') }}"
+      type="image/png"
+      sizes="any"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='img/icons/icon.svg') }}"
+      type="image/svg+xml"
+    />
+    <!-- 180×180 -->
+    <link
+      rel="apple-touch-icon"
+      href="{{ url_for('static', filename='img/icons/apple-touch-icon.png') }}"
+    />
+    <link
+      rel="manifest"
+      href="{{ url_for('static', filename='manifest.webmanifest') }}"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;600;700&family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/general.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/queries.css') }}"
+    />
+    {% block styles %} {% endblock %}
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script
+      defer
+      src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
+    ></script>
+
+    <title>WeatherWardrobeApp</title>
+  </head>
+
+  <body class="layout">
+    <header class="header">
+      <div class="logo-container">
+        <a href="/">
+          <img
+            class="logo"
+            alt="Weather App logo"
+            src="{{ url_for('static', filename='img/logo2.png') }}"
+          />
+        </a>
+      </div>
+      <nav class="main-nav">{% block header %} {% endblock %}</nav>
+      <button class="btn-mobile-nav" aria-label="Open/close menu">
+        <ion-icon name="menu-outline" class="icon-mobile-nav"></ion-icon>
+        <ion-icon name="close-outline" class="icon-mobile-nav"></ion-icon>
+      </button>
+    </header>
+
+    <main class="container main">{% block main %} {% endblock %}</main>
+
+    <!-- Bouton pour le retour vers le haut de la page -->
+    <button class="back-to-top to-hide" aria-label="Back to top">
+      <a href="#">
+        <img
+          src="{{ url_for('static', filename='img/icons/arrow-icon-up.svg') }}"
+          aria-label="Back to top"
+        />
+      </a>
+    </button>
+
+    <footer class="footer">
+      <div class="grid-footer">
+        <div class="footer-logo-container">
+          <a href="#">
+            <img
+              alt="WeatherWardrobeApp logo"
+              src="{{ url_for('static', filename='img/logo2.png') }}"
+            />
+          </a>
+        </div>
+
+        <nav>
+          <p class="footer-heading">About us</p>
+          <ul class="footer-nav">
+            <li><a class="footer-link" href="#">Who are we?</a></li>
+            <li><a class="footer-link" href="#">Why offer this service?</a></li>
+            <li><a class="footer-link" href="#">Want to join us?</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <p class="footer-heading">Contact us</p>
+          <ul class="footer-nav">
+            <li>
+              <a class="footer-link" href="mailto:hello@matrice.io"
+                >hello@hell.com</a
+              >
+            </li>
+            <li>
+              <p class="footer-link">
+                666 Straight2Hell Bd, Los Demons, CA, 66666, USA
+              </p>
+            </li>
+            <li>
+              <a class="footer-link" href="tel:+33 6 66 66 66 66">
+                +33 6 66 66 66 66</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <nav>
+          <p class="footer-heading">Follow us</p>
+          <div class="social-links">
+            <ul class="links-display">
+              <li class="to-resize">
+                <a
+                  class="footer-link"
+                  href="https://www.newgrounds.com/portal/view/525929"
+                  target="_blank"
+                >
+                  <ion-icon class="social-icon" name="logo-facebook"></ion-icon>
+                </a>
+              </li>
+              <li class="to-resize">
+                <a
+                  class="footer-link"
+                  href="https://www.newgrounds.com/portal/view/525929"
+                  target="_blank"
+                >
+                  <ion-icon
+                    class="social-icon"
+                    name="logo-instagram"
+                  ></ion-icon>
+                </a>
+              </li>
+              <li class="to-resize">
+                <a
+                  class="footer-link"
+                  href="https://www.newgrounds.com/portal/view/525929"
+                  target="_blank"
+                >
+                  <ion-icon class="social-icon" name="logo-twitter"></ion-icon>
+                </a>
+              </li>
+            </ul>
+            <ul class="links-display">
+              <li class="to-resize">
+                <a
+                  class="footer-link"
+                  href="https://www.newgrounds.com/portal/view/525929"
+                  target="_blank"
+                >
+                  <ion-icon class="social-icon" name="logo-linkedin"></ion-icon>
+                </a>
+              </li>
+              <li class="to-resize">
+                <a
+                  class="footer-link"
+                  href="https://www.newgrounds.com/portal/view/525929"
+                  target="_blank"
+                >
+                  <ion-icon class="social-icon" name="logo-github"></ion-icon>
+                </a>
+              </li>
+              <li class="to-resize">
+                <a
+                  class="footer-link"
+                  href="https://www.newgrounds.com/portal/view/525929"
+                  target="_blank"
+                >
+                  <ion-icon class="social-icon" name="logo-youtube"></ion-icon>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <div id="copyright" class="copyright">
+          Copyright&copy;<span class="copyright-year"></span> by Go2H, Inc. All
+          rights reserved.
+        </div>
+      </div>
+    </footer>
+    <!-- Scripts -->
+    <!-- <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script> -->
+    <script
+      type="module"
+      src="{{ url_for('static', filename='js/main.js') }}"
+    ></script>
+    {% block script %} {% endblock %}
+  </body>
+</html>

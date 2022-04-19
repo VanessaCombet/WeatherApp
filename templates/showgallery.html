@@ -1,0 +1,90 @@
+{% extends "layout.html" %} {% block styles %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/showgallery.css') }}"
+/>
+{% endblock %} {% block header %}
+<ul class="main-nav-list">
+  <li>
+    <a href="/uploads" class="main-nav-link" title="Straight to uploads page"
+      >Upload</a
+    >
+  </li>
+  <li>
+    <a
+      href="/#top-weather-app"
+      class="main-nav-link nav-weather-app"
+      title="Back to WeatherApp"
+      >WeatherApp</a
+    >
+  </li>
+</ul>
+{% endblock %} {% block main %}
+<!-- <div class="show-gallery">
+  <div class="categories">
+    <h2 class="heading-secondary">Categories</h2>
+    <ul class="main-nav-list">
+      {% for category in all_cats %}
+      <li>
+        <a href="/{{ category[0] }}"
+           class="main-nav-link"
+           >{{ category[1] }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+
+  
+  <div class="homeContent">
+
+    {% for picture in all_pictures %}
+    <figure class="conteneurImages">
+      <a href="/showpicture/{{ picture[1] }}">
+        <img
+        src="{{ config['UPLOAD_FOLDER'] }}/{{ picture[1] }}" 
+        alt="{{ picture[0] }}"
+        class="gallery-show"
+        width="170"
+        height="170"
+        />
+      </a>
+    </figure>
+    {% endfor %}
+  </div>
+  
+  
+
+</div> -->
+
+<h2 class="title-gallery heading-primary">Gallery</h2>
+<p class="hero-description">
+  Select a season to show the pictures associated to your choice!
+</p>
+<div class="gallery-content">
+  <ul class="main-nav-list">
+    {% for category in all_cats %}
+    <li>
+      <a href="/{{ category[0] }}" class="main-nav-link">{{ category[1] }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <div class="gallery-content">
+    <figure class="img-container">
+      {% for picture in all_pictures %}
+      <a href="/showpicture/{{ picture[1] }}" aria-label="Show picture">
+        <img
+          class="gallery-img"
+          src="{{ config['UPLOAD_FOLDER'] }}/{{ picture[1] }}"
+          alt="{{ picture[0] }}"
+          width="170"
+          height="170"
+        />
+      </a>
+      {% endfor %}
+    </figure>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @media (prefers-color-scheme: dark) {
+      .a { fill: #f0f0f0 }
+      .b { fill: #000}
+    }
+  </style> 
+ <defs>
+  <linearGradient y2="0.564062" x2="1" y1="0" x1="0" id="svg_15">
+   <stop offset="0.246094" stop-color="#881da8"/>
+   <stop offset="1" stop-opacity="0.996094" stop-color="#004683"/>
+  </linearGradient>
+ </defs>
+ <title/>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path class="a" stroke-width="0" fill="url(#svg_15)" id="svg_1" d="m40.37,15.21a10.35,10.35 0 0 1 10.36,17.93c-4.95,2.86 -13.88,2.66 -16.73,-2.29s1.42,-12.78 6.37,-15.64z" class="cls-1"/>
+  <path class="a" stroke-width="0" fill="url(#svg_15)" id="svg_2" d="m50.73,30.86a10.35,10.35 0 1 1 -10.36,17.93c-5,-2.86 -9.25,-10.69 -6.39,-15.64s11.8,-5.15 16.75,-2.29z" class="cls-2"/>
+  <path class="a" stroke-width="0" fill="url(#svg_15)" id="svg_3" d="m42.35,16.35c0,5.72 -4.64,13.35 -10.35,13.35s-10.35,-7.63 -10.35,-13.35a10.35,10.35 0 0 1 20.71,0l-0.01,0z" class="cls-3"/>
+  <path class="a" stroke-width="0" fill="url(#svg_15)" id="svg_4" d="m42.35,47.65a10.35,10.35 0 0 1 -20.71,0c0,-5.72 4.64,-13.35 10.35,-13.35s10.36,7.63 10.36,13.35z" class="cls-4"/>
+  <path class="a" stroke-width="0" fill="url(#svg_15)" id="svg_5" d="m23.63,15.21c5,2.86 9.25,10.69 6.39,15.64s-11.8,5.15 -16.75,2.29a10.35,10.35 0 1 1 10.36,-17.93z" class="cls-5"/>
+  <path class="a" stroke-width="0" fill="url(#svg_15)" id="svg_6" d="m13.27,30.86c4.95,-2.86 13.88,-2.66 16.73,2.29s-1.44,12.78 -6.39,15.64a10.35,10.35 0 0 1 -10.34,-17.93z" class="cls-6"/>
+  <circle fill="#efcc00" id="svg_7" r="10.35" cy="32" cx="32" class="cls-7"/>
+  <circle fill="#efcc00" id="svg_8" r="2" cy="21" cx="16" class="cls-7"/>
+  <circle fill="#efcc00" id="svg_9" r="2" cy="50" cx="17" class="cls-7"/>
+  <circle fill="#efcc00" id="svg_10" r="2" cy="15" cx="50" class="cls-7"/>
+  <circle class="b" fill="#ffffff" id="svg_11" r="1.5" cy="9" cx="16" class="cls-8"/>
+  <circle class="b" fill="#ffffff" id="svg_12" r="1.5" cy="31" cx="6" class="cls-8"/>
+  <circle class="b" fill="#ffffff" id="svg_13" r="1.5" cy="8" cx="45" class="cls-8"/>
+ </g>
+</svg>

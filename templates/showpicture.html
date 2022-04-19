@@ -1,0 +1,75 @@
+{% extends "layout.html" %} {% block styles %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/showpicture.css') }}"
+/>
+{% endblock %} {% block header %}
+<ul class="main-nav-list">
+  <li><a href="/showgallery" class="main-nav-link">Gallery</a></li>
+  <li>
+    <a href="/uploads" class="main-nav-link">Uploads</a>
+  </li>
+  <li>
+    <a
+      href="/#top-weather-app"
+      class="main-nav-link nav-weather-app"
+      title="Back to WeatherApp"
+      >WeatherApp</a
+    >
+  </li>
+</ul>
+{% endblock %} {% block main %}
+<h2 class="heading-primary title-showpicture">Picture and Comments</h2>
+<p class="heading-secondary">Picture's title: {{ given_title }}</p>
+<p class="heading-secondary">Picture's description: {{ given_desc }}</p>
+<section class="showpicture">
+  <figure class="img-container">
+    <img
+      src="../{{ config['UPLOAD_FOLDER'] }}/{{ given_picture }}"
+      alt="{{ given_desc }}"
+      width="170"
+      height="170"
+      class="show-img"
+    />
+  </figure>
+
+  <form class="comments-container" method="post">
+    <div class="comments-area">
+      <label for="comment_given_picture" class="form-label">
+        Leave a comment (30 car. max)
+      </label>
+      <textarea
+        id="comment_given_picture"
+        name="comment_given_picture"
+        rows="1"
+        placeholder="Enter your comment"
+        maxlength="30"
+      ></textarea>
+    </div>
+    <div class="comments-area">
+      <label for="user_name" class="form-label">
+        Your name:<span class="required-info"><sup>*</sup></span>
+      </label>
+      <input type="text" id="user_name" name="user_name" required />
+    </div>
+    <div class="comments-area">
+      <label for="user_mail" class="form-label">
+        Your mail:<span class="required-info"><sup>*</sup></span>
+      </label>
+      <input type="email" id="user_mail" name="user_mail" required />
+    </div>
+    <div class="comments-button">
+      <button class="btn" type="submit" aria-label="To submit">Thanks!</button>
+    </div>
+
+    {% if given_comments %}
+    <p>Comments:</p>
+    <div class="comments-text-container">
+      {% for comment in given_comments %}
+      <p class="comments-text">{{ comment[0] }} by {{ comment[1] }}</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </form>
+</section>
+{% endblock %}

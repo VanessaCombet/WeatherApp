@@ -1,0 +1,235 @@
+{% extends "layout.html" %} {% block header %}
+<ul class="main-nav-list">
+  <li>
+    <a href="/showgallery#" class="main-nav-link" title="Visit the gallery"
+      >Gallery</a
+    >
+  </li>
+  <li>
+    <a href="/uploads" class="main-nav-link" title="Straight to uploads page"
+      >Uploads</a
+    >
+  </li>
+  <li>
+    <a
+      href="#top-weather-app"
+      class="main-nav-link nav-weather-app"
+      title="Straight to WeatherApp"
+      >WeatherApp</a
+    >
+  </li>
+</ul>
+{% endblock %} {% block main %}
+<section class="section-hero">
+  <div class="hero">
+    <div class="hero-text-box">
+      <h1 class="heading-primary">
+        Check the weather forecast and choose the right outfit
+      </h1>
+      <p class="hero-description">
+        The smart web application that will help you choose what to wear,
+        wherever you are or going to be!
+      </p>
+    </div>
+    <div class="hero-img-box">
+      <picture>
+        <source
+          srcset="{{ url_for('static', filename='img/photos/m_hero-img.webp') }}"
+          type="image/webp"
+        />
+        <source
+          srcset="{{ url_for('static', filename='img/photos/m_hero-img.jpg') }}"
+          type="image/jpg"
+        />
+        <img
+          src="{{ url_for('static', filename='img/photos/m_hero-img.jpg') }}"
+          class="hero-img"
+          alt="Rain boots and umbrella"
+        />
+      </picture>
+    </div>
+
+    <div class="happy-users">
+      <div class="h-users-imgs">
+        <picture>
+          <source
+          srcset="{{ url_for('static', filename='img/users/missTik.webp') }}"
+          type="image/webp"
+        />
+        <source
+          srcset="{{ url_for('static', filename='img/users/missTik.png') }}"
+          type="image/png"
+        />
+          <img
+          src="{{ url_for('static', filename='img/users/missTik.png') }}"
+          alt="user photo"
+          />
+          <img
+          src="{{ url_for('static', filename='img/users/missTik.png') }}"
+          alt="user photo"
+          />
+          <img
+          src="{{ url_for('static', filename='img/users/missTik.png') }}"
+          alt="user photo"
+          />
+          <img
+          src="{{ url_for('static', filename='img/users/missTik.png') }}"
+          alt="user photo"
+          />
+          <img
+          src="{{ url_for('static', filename='img/users/missTik.png') }}"
+          alt="user photo"
+          />
+        </picture>
+        
+      </div>
+      <p class="h-users-text">Over millions of happy users!</p>
+    </div>
+  </div>
+</section>
+
+<div>
+  <section class="section-weather-app" id="top-weather-app">
+    <h1 class="heading-primary weather-item1">WeatherApp</h1>
+    <!-- <div> -->
+    <!-- 1st element FORM -->
+    <div class="weather-item2">
+      <small id="missing-error-message" class="text-danger"></small>
+      <form id="form-city" class="form-container">
+        <div class="city-name">
+          <input
+            type="text"
+            id="city-name-input"
+            class=""
+            placeholder="Enter a city's name"
+          />
+        </div>
+        <div>
+          <select id="week-days" required>
+            <option value="1">1 day</option>
+            <option value="2">2 days</option>
+            <option value="3">3 days</option>
+            <option value="4">4 days</option>
+            <option value="5">5 days</option>
+            <option value="6">6 days</option>
+            <option value="7">7 days</option>
+          </select>
+        </div>
+        <div class="radio-container">
+          <div class="radio-item">
+            <input
+              type="radio"
+              id="radio-cels"
+              name="radio"
+              value="celsius"
+              checked
+            />
+            <label for="radio-cels" class="radio-label">Celsius</label>
+          </div>
+          <div class="radio-item">
+            <input
+              type="radio"
+              id="radio-faren"
+              name="radio"
+              value="farenheit"
+            />
+            <label for="radio-faren" class="radio-label">Farenheit</label>
+          </div>
+        </div>
+
+        <button
+          id="btn-weather"
+          type="submit"
+          class="btn btn-form"
+          aria-label="To go to the App section"
+        >
+          Go for it!
+        </button>
+      </form>
+    </div>
+
+    <div id="city-container" class="weather-item3 heading-secondary">
+      <span id="city-formatted"></span>
+    </div>
+
+    <div class="weather-item4">
+      <div id="weather-container"></div>
+    </div>
+  </section>
+  <div id="season"></div>
+  <section class="section-testimonials" id="top-testimonials">
+    <div class="testimonials-heading">
+      <span class="subheading">Testimonials</span>
+      <h2 class="heading-secondary">Once you try it, you can't go back</h2>
+    </div>
+
+    <div class="testimonials-container">
+      <div class="testimonials">
+        <figure>
+          <img
+            class="testimonial-img"
+            alt="Photo of a user"
+            src="{{ url_for('static', filename='img/users/missTik.webp') }}"
+          />
+          <blockquote class="testimonial-text">
+            Free app helps me pick the perfect outfit. It feels truly magical.
+          </blockquote>
+          <p class="testimonial-name">&mdash; Miss Tik</p>
+        </figure>
+
+        <figure>
+          <img
+            class="testimonial-img"
+            alt="Photo of a user"
+            src="{{ url_for('static', filename='img/users/missTik.webp') }}"
+          />
+          <blockquote class="testimonial-text">
+            The app is crazy good, it chooses the right clothes for me!
+          </blockquote>
+          <p class="testimonial-name">&mdash; Éléa Tik</p>
+        </figure>
+
+        <figure>
+          <img
+            class="testimonial-img"
+            alt="Photo of customer Steve Miller"
+            src="{{ url_for('static', filename='img/users/missTik.webp') }}"
+          />
+          <blockquote class="testimonial-text">
+            WeatherApp is a real life saver! I couldn't live without it now...
+          </blockquote>
+          <p class="testimonial-name">&mdash; Cosmo Tik</p>
+        </figure>
+
+        <figure>
+          <img
+            class="testimonial-img"
+            alt="Photo of customer Hannah Smith"
+            src="{{ url_for('static', filename='img/users/missTik.webp') }}"
+          />
+          <blockquote class="testimonial-text">
+            I use the app for the whole family, and it frees up so much time!
+          </blockquote>
+          <p class="testimonial-name">&mdash; Russ Tik</p>
+        </figure>
+      </div>
+    </div>
+
+    <div class="gallery">
+      {% for picture in all_pictures %}
+      <figure class="gallery-item">
+        <a href="/showpicture/{{ picture[1] }}">
+          <img
+            src="/img/gallery/{{ picture[1] }}"
+            alt="{{ picture[0] }}"
+            height="170"
+            width="170"
+            class="gallery-img"
+          />
+        </a>
+      </figure>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+{% endblock %}

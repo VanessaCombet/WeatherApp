@@ -1,0 +1,12 @@
+{
+  "short_name": "Weather App",
+  "name": "Weather Wardrobe App Project",
+  "icons": [
+    { "src": "./img/icons/logo192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "./img/icons/logo512.png", "type": "image/png", "sizes": "512x512" }
+  ],
+  "start_url": "/",
+  "theme_color": "#4a4a4a",
+  "background_color": "#4a4a4a",
+  "display": "standalone"
+}

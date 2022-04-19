@@ -1,0 +1,111 @@
+{% extends "layout.html"%}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/uploads.css') }}" />
+{% endblock %}
+
+
+{% block header %}      
+  <ul class="main-nav-list">
+    <li>
+        <a href="/showgallery#"
+           class="main-nav-link"
+           title="Visit the gallery"
+           >Gallery</a>
+    </li>
+    <li>
+        <a href="/#top-weather-app"
+           class="main-nav-link nav-weather-app"
+           title="Back to WeatherApp"
+           >WeatherApp</a>
+      </li>
+  </ul>
+{% endblock %}
+
+
+{% block main %}
+    <!-- affichage image  -->
+    {% if last_pict %}
+    <h1 class="heading-primary title-comments">Want to add another one?</h1>
+        {% block affiche_picture %}
+        <h2 class="heading-secondary">Here's the picture you added</h2>
+        <div class="added-picture">
+            <a href="/showpicture/{{ last_pict }}">
+                <img src="{{ config['UPLOAD_FOLDER'] }}/{{ last_pict }}" alt={{ last_pict_desc }} width="170" height="170" />
+            </a>
+            <div>
+                <p class="img-txt">Its title: {{ last_pict_title }}.</p>
+                <p class="img-txt">Its description: {{ last_pict_desc }}.</p>
+            </div>
+        </div>
+        <h2 class="heading-secondary">Wish to add another one?</h2>
+        <p class="img-txt">Or else you can click on your picture to add a comment, if you prefer seeing the pictures associated,<a href="/{{ last_pict_cat }}" class="nav-link">feel free!</a></p>
+        {% endblock %}
+    {% else %}
+        <h2 class="heading-primary title-comments">Add your picture!</h2>
+    {% endif %}
+    <!-- gestion erreurs  -->
+    {% if mytext %}
+        <p class="errorMessage">{{ mytext }}</p>
+    {% endif %}
+    
+
+        <form class="upload-form-container" method="post" enctype=multipart/form-data>
+            <div class="upload-form-label">
+                <label for="new_photo" class="form-label" id="choice">
+                    Choose a picture<span class="required-info"><sup>*</sup></span><span></span>
+                </label>
+            </div>
+            <div class="upload-form" id="file-name">
+                <input type="file" id="new_photo" name="nouvelle_photo" required>  
+            </div>
+            <div class="preview"></div>
+            <div class="upload-form-label">
+                <label for="title_new_photo" class="form-label">
+                    <p>Enter its title<span class="required-info"><sup>*</sup></span></p>
+                    <p>(20 car max) &nbsp;</p>
+                </label>
+            </div>
+            <div class="upload-form"> 
+                <input type=text id="title_new_photo" name="title_nouvelle_photo" placeholder="Title"
+                maxlength="20" required>
+            </div>
+
+            <div class="upload-form-label">
+                <label for="desc_new_photo" class="form-label">
+                    <p>A description<span class="required-info"><sup>*</sup></span></p>
+                    <p>(50 car max) &nbsp;</p>
+                </label>
+            </div>
+            <div  class="upload-form">
+                <textarea id="desc_new_photo" name="desc_nouvelle_photo" rows="1" maxlength="50" placeholder="Description" required></textarea>
+            </div>
+            <div class="upload-form">
+                <select 
+                class="form-select" 
+                aria-label="Select a category" 
+                id="cats_name_new_photo" 
+                name="cats_name_nouvelle_photo"
+                required>
+                {% block lescategories %}
+                    <option value="">
+                        Season<sup>*</sup>
+                    </option>
+                    {% for category in all_cats %}
+                        <option class="list-group-item list-group-item-primary">{{ category }}</option>
+                    {% endfor %}
+                {% endblock %}
+                </select>
+            </div>
+
+            <div class="uploads-btn-container">
+                <button class="uploads-btn" type="submit" aria-label="To upload picture">Upload</button>
+            </div>
+        </form>
+        
+
+          
+{% endblock %}
+{% block script %}
+<script src="{{ url_for('static', filename='js/uploadform.js') }}" ></script>
+{% endblock %}
